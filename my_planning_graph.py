@@ -305,6 +305,7 @@ class PlanningGraph():
         # i.e. until it is "leveled"
         while not leveled:
             self.add_action_level(level)
+
             self.update_a_mutex(self.a_levels[level])
 
             level += 1

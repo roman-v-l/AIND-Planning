@@ -216,7 +216,7 @@ class AirCargoProblem(Problem):
         for clause in self.goal:
             if clause not in kb.clauses:
                 count += 1
-		
+
         return count
 
 
@@ -294,11 +294,11 @@ def air_cargo_p3() -> AirCargoProblem:
     planes = ['P1', 'P2']
     airports = ['JFK', 'SFO', 'ATL', 'ORD']
     pos = [expr('At(C1, SFO)'),
+           expr('At(P1, SFO)'),
            expr('At(C2, JFK)'),
+           expr('At(P2, JFK)'),
            expr('At(C3, ATL)'),
            expr('At(C4, ORD)'),
-           expr('At(P1, SFO)'),
-           expr('At(P2, JFK)'),
            ]
     neg = [expr('At(C4, JFK)'),
            expr('At(C4, SFO)'),
@@ -329,8 +329,8 @@ def air_cargo_p3() -> AirCargoProblem:
            ]
     init = FluentState(pos, neg)
     goal = [expr('At(C1, JFK)'),
-            expr('At(C3, JFK)'),
             expr('At(C2, SFO)'),
+            expr('At(C3, JFK)'),
             expr('At(C4, SFO)'),
             ]
 
